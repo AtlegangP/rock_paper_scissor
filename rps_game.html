@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock Paper Scissor</title>
+    </head>
+    <body>
+        <script>
+            function getComputerChoice() {
+                let computerChoices =["rock","paper","scissors"];
+                let randomChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+                return randomChoice;   
+            }
+
+            function playRound(playerSelection, computerSelection) {
+                if (playerSelection === "rock") {
+                    if (computerSelection === "rock") {
+                        return "It's a tie!"
+                    } else if (computerSelection === "paper") {
+                        return "You lose! Paper beats rock"
+                    } else {
+                        return "You win! Rock beats scissors"
+                    }
+                } else if (playerSelection === "paper") {
+                    if (computerSelection === "paper") {
+                        return "It's a tie!"
+                    } else if (computerSelection === "scissors") {
+                        return "You lose! Scissors beat paper"
+                    } else {
+                        return "You win! Paper beats rock"
+                    }
+                } else {
+                    if (computerSelection === "scissors") {
+                        return "It's a tie!"
+                    } else if (computerSelection === "rock") {
+                        return "You lose! Rock beats scissors"
+                    } else {
+                        return "You win! Scissors beat paper"
+                    }
+                }
+            }
+
+            function game() {
+                for (let i = 0; i < 5; i++) {
+                    const playerSelection = prompt("Rock, Paper or Scissors ?");
+                    const computerSelection = getComputerChoice();
+                    console.log("You chose: " + playerSelection + "\n" + "Computer chose: " + computerSelection + "\n" + playRound(playerSelection.toLowerCase(), computerSelection));
+                }
+            } 
+            game();    
+        </script>
+    </body>
+</html>
