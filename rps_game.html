@@ -5,49 +5,35 @@
         <title>Rock Paper Scissor</title>
     </head>
     <body>
-        <script>
-            function getComputerChoice() {
-                let computerChoices =["rock","paper","scissors"];
-                let randomChoice = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-                return randomChoice;   
-            }
-
-            function playRound(playerSelection, computerSelection) {
-                if (playerSelection === "rock") {
-                    if (computerSelection === "rock") {
-                        return "It's a tie!"
-                    } else if (computerSelection === "paper") {
-                        return "You lose! Paper beats rock"
-                    } else {
-                        return "You win! Rock beats scissors"
-                    }
-                } else if (playerSelection === "paper") {
-                    if (computerSelection === "paper") {
-                        return "It's a tie!"
-                    } else if (computerSelection === "scissors") {
-                        return "You lose! Scissors beat paper"
-                    } else {
-                        return "You win! Paper beats rock"
-                    }
-                } else {
-                    if (computerSelection === "scissors") {
-                        return "It's a tie!"
-                    } else if (computerSelection === "rock") {
-                        return "You lose! Rock beats scissors"
-                    } else {
-                        return "You win! Scissors beat paper"
-                    }
-                }
-            }
-
-            function game() {
-                for (let i = 0; i < 5; i++) {
-                    const playerSelection = prompt("Rock, Paper or Scissors ?");
-                    const computerSelection = getComputerChoice();
-                    console.log("You chose: " + playerSelection + "\n" + "Computer chose: " + computerSelection + "\n" + playRound(playerSelection.toLowerCase(), computerSelection));
-                }
-            } 
-            game();    
-        </script>
+        <div id="container">
+            <h1>Lets Play Rock Paper Scissors</h1>
+            <p>The first to reach five points will be the overall winner</p>
+            <div id="buttons">
+                <button id="rock" class="btn-weapon">ROCK</button>
+                <button id="paper" class="btn-weapon">PAPER</button>
+                <button id="scissors" class="btn-weapon">SCISSORS</button>
+            </div>
+            <hr/>
+            <div id="scores">
+                <h2>SCOREBOARD</h2>
+                <table>
+                    <tr>
+                        <td id="playerScore">0</td>
+                        <td id="computerScore">0</td>
+                    </tr>
+                    <tr>
+                        <td id="playerChoice">-</td>
+                        <td id="computerChoice">-</td>
+                    </tr>
+                </table>
+            </div>
+            <hr/>
+            <div id="results">
+                <br/>
+                <div id="eachRoundResult"></div>
+                <br/>
+            </div>
+        </div>
+        <script src="js-file.js"></script>
     </body>
 </html>
